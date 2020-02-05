@@ -1,0 +1,15 @@
+.login{
+    box-sizing: border-box;
+}
+.login-row{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+.login-center{
+    border-radius: 5px;
+    box-sizing: border-box;
+    padding-right: 50px;
+}

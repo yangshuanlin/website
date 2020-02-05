@@ -13,10 +13,11 @@
 Route::get('/', function () {
     return view('welcome');
 });
-Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 //后台
-Route::prefix('admin')->namespace('Admin')
+Route::prefix(config('app.admin'))->middleware(['checkAdmin'])->namespace('Admin')
     ->group(function () {
+    Route::get('/','IndexController@index');
+    Route::get('/login','LoginController@index');
 });
 
