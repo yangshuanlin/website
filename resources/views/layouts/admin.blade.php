@@ -9,11 +9,21 @@
     <link rel="stylesheet" href="{{asset('layui/css/layui.css')}}" media="all">
     @yield('css')
 </head>
+<style>
+    #app{
+        min-height: 100vh;
+    }
+</style>
 <body>
-    <div id="app">
+    <div id="app" class="layui-bg-blue">
         @yield('content')
     </div>
 </body>
+<script type="application/javascript">
+    var key ="{{config('app.key')}}";
+</script>
     <script type="application/javascript" src="{{asset('layui/layui.js')}}"></script>
+    <script type="application/javascript" src="{{asset('static/CryptoJS/crypto-js.js')}}"></script>
+    <script type="application/javascript" src="{{asset('static/common/ajaxEncode.js')}}"></script>
     @yield('js')
 </html>

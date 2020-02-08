@@ -15,6 +15,8 @@ return [
 
     'name' => env('APP_NAME', '19js'),
     'admin' => env('ADMIN_NAME', 'manage'),
+    'beian' => env('BEIAN_NUM', '晋ICP备19011600号-1'),
+    'auth_expire' => env('AUTH_EXPIRE', 500),
     /*
     |--------------------------------------------------------------------------
     | Application Environment

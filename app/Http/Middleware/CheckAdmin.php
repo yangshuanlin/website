@@ -15,7 +15,8 @@ class CheckAdmin
      */
     public function handle($request, Closure $next)
     {
-        $arr=[config('app.admin').'/login'];
+        $admin=config('app.admin');
+        $arr=[$admin.'/login',$admin.'/check'];
         $key=md5('adminIsLogin');
         $role=md5('adminRoleId');
         $admin=md5('adminId');

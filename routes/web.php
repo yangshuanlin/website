@@ -15,9 +15,10 @@ Route::get('/', function () {
 });
 Route::get('/home', 'HomeController@index')->name('home');
 //后台
-Route::prefix(config('app.admin'))->middleware(['checkAdmin'])->namespace('Admin')
+Route::prefix(config('app.admin'))->middleware(['checkAdmin','decrypt'])->namespace('Admin')
     ->group(function () {
     Route::get('/','IndexController@index');
     Route::get('/login','LoginController@index');
+    Route::post('/check','LoginController@checkAdmin');
 });
 
