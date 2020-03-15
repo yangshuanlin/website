@@ -15,6 +15,16 @@ class AesCrypt
      */
     public function handle($request, Closure $next)
     {
+        $checkArr=['POST','PUT','DELETE'];
+        if(in_array($request->method(),$checkArr)){
+            try{
+                $res=$this->deCrypt($request->input('d'));
+                $_POST=json_decode($res,true);
+                $request->offsetSet('d',$_POST);
+            }catch (\Exception $E){
+                return response()->json($E->getMessage(),$E->getCode());
+            }
+        }
         return $next($request);
     }
     public function deCrypt($str){

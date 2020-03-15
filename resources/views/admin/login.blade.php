@@ -5,7 +5,7 @@
 @section('content')
     <div class="layui-layui-fluid layui-bg-blue login">
         <div class="layui-row login-row">
-            <div class="layui-col-lg3 layui-anim-scale ">
+            <div class="layui-col-lg4 layui-anim-scale">
                 <h1 class="layui-field-title" style="text-align: center; line-height: 100px;">{{config('app.name')}}后台管理中心</h1>
                 <form class="layui-form login-center" action="javascript:void(0)" >
                     @csrf
