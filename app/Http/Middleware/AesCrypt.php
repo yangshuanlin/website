@@ -19,8 +19,13 @@ class AesCrypt
         if(in_array($request->method(),$checkArr)){
             try{
                 $res=$this->deCrypt($request->input('d'));
-                $_POST=json_decode($res,true);
-                $request->offsetSet('d',$_POST);
+                $temp=json_decode($res,true);
+                if($temp){
+                    foreach ($temp as $k=>$vo){
+                        $request->offsetSet($k,$vo);
+                    }
+                }
+
             }catch (\Exception $E){
                 return response()->json($E->getMessage(),$E->getCode());
             }

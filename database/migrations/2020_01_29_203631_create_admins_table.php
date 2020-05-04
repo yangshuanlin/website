@@ -19,7 +19,7 @@ class CreateAdminsTable extends Migration
             $table->charset='utf8';
             $table->collation='utf8_general_ci';
             $table->string('name',20)->unique()->comment('用户名');
-
+            $table->string('password',100)->comment('密码');
             $table->char('mobile',11)->comment('电话号码');
             $table->string('email',50)->comment('邮箱');
             $table->unsignedInteger('role_id')->comment('角色id');

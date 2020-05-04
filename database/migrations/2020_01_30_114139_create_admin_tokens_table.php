@@ -21,7 +21,7 @@ class CreateAdminTokensTable extends Migration
             $table->unsignedBigInteger('create_at')->comment('创建时间');
             $table->unsignedBigInteger('limit_at')->comment('有效时间');
             $table->char('token',32)->comment('token令牌');
-            $table->unsignedBigInteger('ip')->comment('客户端ip');
+            $table->unsignedBigInteger('ip')->comment( '客户端ip');
             $table->string('flag',500)->comment('客户端标识');
             $table->primary(['admin_id','token']);
             $table->foreign('admin_id')->on('admins')->references('id');

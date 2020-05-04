@@ -1,10 +1,8 @@
 <?php
 
 namespace App\Http\Controllers\Admin;
-
-use App\Http\Controllers\Controller;
 use App\Http\Requests\AdminLoginCheck;
-use Illuminate\Http\Request;
+use App\Model\Admins;
 
 class LoginController extends BaseController
 {
@@ -12,7 +10,12 @@ class LoginController extends BaseController
     public function index() {
         return view('admin.login');
     }
-    public function checkAdmin(Request $request){
-       $data=$request->input('d');
+    public function checkAdmin(AdminLoginCheck $request){
+        try{
+            $adminModel=new Admins();
+            $adminModel->checkLogin($request->post('username'),$request->post('password'));
+        }catch (\Exception $e){
+            dump($e->getMessage());exit;
+        }
     }
 }
